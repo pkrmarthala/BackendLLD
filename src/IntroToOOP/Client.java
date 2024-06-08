@@ -10,12 +10,21 @@ public class Client {
          */
 
         Student x = new Student();
-        x.name = "Simba";
+
+        /*
+         * To access and modify private values, we have the getter and setter functions.
+         * These functions will be defined in the Student class and
+         * these can access these private values since they are in the same Class, Student.
+         * We just need to call these functions with appropriate parameters from the Client class.
+         */
+
+        x.setName("Simba");
         x.age = 10;
         x.psp = 76.0;
         x.attPer = 90.0;
 
         // . operator will be used to access the attributes or the methods of the object that calls them (x in this case)
+        System.out.println("x.name: " + x.getName());
         System.out.println("x.age: " + x.age);
 
         /* y is another reference variable that will hold the Student object.

@@ -4,7 +4,9 @@ import IntroToOOP.Student;
 
 public class Client {
 
-    /*
+    /* All the access modifiers are generally for the data members and the member functions only.
+     * Not for classes or others.
+     *
      * private      :   only within the class.
      * default      :   same class + same package : referred to as Package level protected.
      * protected    :   same class + same package + child class outside the package.

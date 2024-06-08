@@ -1,7 +1,5 @@
 package IntroToOOP;
 
-import java.sql.SQLOutput;
-
 public class Client {
     public static void main(String[] args) {
         /*
@@ -44,6 +42,13 @@ public class Client {
         z = y;
         z.age += 10;
         System.out.println("x.age: " + x.age);
+
+        Student s1 = new Student("Praveen Reddy", 23, "Sep23", 79, 90);
+        System.out.println("\n\nname: " + s1.getName());
+        System.out.println("age: " + s1.age);
+        System.out.println("batch: " + s1.batch);
+        System.out.println("psp: " + s1.psp);
+        System.out.println("attPer: " + s1.attPer);
 
     }
 }

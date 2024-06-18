@@ -18,11 +18,6 @@ public class Client {
          * We just need to call these functions with appropriate parameters from the Client class.
          */
 
-//        x.setName("Simba");
-//        x.age = 10;
-//        x.psp = 76.0;
-//        x.attPer = 90.0;
-
 //        Student s1 = new Student("Praveen Reddy", 23, "Sep23", 79, 90);
 //        System.out.println("\n\nname: " + s1.getName());
 //        System.out.println("age: " + s1.age);
@@ -30,14 +25,13 @@ public class Client {
 //        System.out.println("psp: " + s1.psp);
 //        System.out.println("attPer: " + s1.attPer);
 
-
         System.out.println("\n\ns1.name: " + s1.getName());
         System.out.println("s1.age: " + s1.age);
         System.out.println("s1.batch: " + s1.batch);
         System.out.println("s1.psp: " + s1.psp);
         System.out.println("s1.attPer: " + s1.attPer);
         System.out.println("s1.UnitTest: " + s1.unitTest);
-        System.out.println("s1.RepeatUnitTest: " + s1.repeatUnitTest);
+        // System.out.println("s1.RepeatUnitTest: " + s1.repeatUnitTest);
 
 
         // Creating a new student using the Copy Constructor
@@ -49,6 +43,6 @@ public class Client {
         System.out.println("s2.psp: " + s2.psp);
         System.out.println("s2.attPer: " + s2.attPer);
         System.out.println("s2.UnitTest: " + s2.unitTest);
-        System.out.println("s2.RepeatUnitTest: " + s2.repeatUnitTest);
+        // System.out.println("s2.RepeatUnitTest: " + s2.repeatUnitTest);
     }
 }

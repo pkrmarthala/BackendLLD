@@ -9,7 +9,6 @@ public class Student {
     double attPer; // attendance percentage
     // unitTest is a reference variable of Exam Class.
     Exam unitTest;
-    ReattemptExam repeatUnitTest;
 
     // Non-parametrized Constructor
     public Student() {
@@ -20,7 +19,7 @@ public class Student {
         this.attPer = 90.0;
         // unitTest is a reference variable of Exam Class.
         this.unitTest = new Exam(1, 90);
-        this.repeatUnitTest = new ReattemptExam(1, "UnitTest1", 80);
+        // this.repeatUnitTest = new ReattemptExam(1, "UnitTest1", 80);
     }
 
     // Parametrized IntroToOOP.Constructors below
@@ -89,7 +88,7 @@ public class Student {
 
         // Deep Copy
         this.unitTest = new Exam(s.unitTest);
-        this.repeatUnitTest = new ReattemptExam(s.repeatUnitTest);
+        //this.repeatUnitTest = new ReattemptExam(s.repeatUnitTest);
     }
 
     /* Deep Copy vs Shallow Copy

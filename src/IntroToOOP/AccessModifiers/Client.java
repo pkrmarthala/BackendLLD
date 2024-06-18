@@ -1,6 +1,6 @@
-package AccessModifiers;
+package IntroToOOP.AccessModifiers;
 
-import IntroToOOP.Student;
+import Reference.Student;
 
 public class Client {
 
@@ -22,7 +22,7 @@ public class Client {
         Student x = new Student();
 
         // private data members cannot be accessed outside the class.
-        // Error: java: name has private access in IntroToOOP.Student
+        // Error: java: name has private access in Reference.Student
 
         /*
          * To access and modify private values, we have the getter and setter functions.

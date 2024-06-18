@@ -1,6 +1,6 @@
-package Constructors;
+package IntroToOOP.V3_Constructors;
 
-import IntroToOOP.Student;
+import Reference.Student;
 
 // A class is always public. Never protected or private. Inner classes can be protected.
 public class Client {
@@ -19,7 +19,7 @@ public class Client {
      * We can write as many constructors as we want until the parameters passed or the order of those are different.
      * One type of Constructor can have only one access modifier.
      *
-     * We can have private, nested Constructors as well.
+     * We can have private, nested IntroToOOP.Constructors as well.
      *
      */
 
@@ -28,7 +28,7 @@ public class Client {
         /* The below line to create the Student object will not work unless the Student Constructor is made public.
          *
          * Error:
-         * java: Student() is not public in IntroToOOP.Student; cannot be accessed from outside package
+         * java: Student() is not public in Reference.Student; cannot be accessed from outside package
          */
 
         Student x = new Student();

@@ -1,4 +1,7 @@
-package IntroToOOP;
+package IntroToOOP.V3_Constructors;
+
+import Reference.Exam;
+import Reference.ReattemptExam;
 
 public class Student {
     // Data Members
@@ -10,6 +13,9 @@ public class Student {
     String batch;
     protected double psp;
     double attPer; // attendance percentage
+    // unitTest is a reference variable of Exam Class.
+    Exam unitTest;
+    ReattemptExam repeatUnitTest;
 
     /* Constructor:
      * Constructor helps you to initialize the object.
@@ -27,7 +33,8 @@ public class Student {
 
     /*
      * Constructor with no parameters. Access Modifier: default.
-     * This constructor cannot be accessed for object creation in any class outside this IntroToOOP package unless it is made public
+     * This constructor cannot be accessed for object creation in any class outside this IntroToOOP.Constructors package,
+     * unless it is made public
      */
 
 //    Student() {
@@ -45,6 +52,9 @@ public class Student {
         this.batch = "new batch";
         this.psp = 70.0;
         this.attPer = 90.0;
+        // unitTest is a reference variable of Exam Class.
+        this.unitTest = new Exam(1, 90);
+        this.repeatUnitTest = new ReattemptExam(1, "UnitTest1", 80);
     }
 
     /* The missing parameters will be initialized to default values
@@ -55,7 +65,7 @@ public class Student {
      *
      */
 
-    // Parametrized Constructors below
+    // Parametrized IntroToOOP.Constructors below
     public Student(String name, int age) {
         this.name = name;
         this.age = age;
@@ -102,13 +112,6 @@ public class Student {
         this.attPer = attPer;
     }
 
-    // Member functions
-
-    /*
-     * To access and modify private values, we have the getter and setter functions.
-     * The functions can access these private values since they are in the same Class, Student.
-     * We just need to call these functions with appropriate parameters from the Client class.
-     */
 
     public void setName(String name) {
         this.name = name;

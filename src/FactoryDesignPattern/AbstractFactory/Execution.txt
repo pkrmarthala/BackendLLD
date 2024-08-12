@@ -1,0 +1,31 @@
+Execution of the Abstract Design Pattern.
++ This AbstractFactory package has both the Abstract and the Simple Factory implementations.
+
+Abstract Factory:
++ Execution starts from the client class. Here we are just given a platform name as a string, and
+we need to have the Button, Dropdown and the Menu generated based on this String input given.
+
++ The Client class passes the platformName (String) to the Platform class to create the corresponding Platform object.
+Android in this case.
+
++ The createPlatform() method of the Platform Class receives this platformName as pfName and
+passes it to the PlatformFactory to generate the corresponding Platform object.
+
++ This platformFactory implements the Simple Factory Design Pattern.
+It just creates the objects with a simple if+else block based on the input String.
+
++ The generated Platform object "p" now calls the createUIComponentFactory().
+This method is defined as abstracted method in the Platform class
+and its definition is written in the Android and iOS sub+classes.
+
++ This method generates the corresponding UIComponentFactory. Android in this case.
+
++ The UIComponentFactory is an interface which guides the classes AndroidComponentFactory and the iOSComponentFactory,
+to generarte the appropriate UIComponentFactory objects.
+
++ This generated UIComponentFactory is stored in uicf variable of UIComponentFactory type.
+
++ This uicf is the object of UIComponentFactory of the given Platform (type). Android in this case.
+
++ This uicf is used to call the createButton), createDropdown(), createMenu() functions,
+defined in the respective UIComponentFactory classes.

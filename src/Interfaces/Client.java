@@ -13,6 +13,7 @@ public class Client {
 
         for(Runner runner : runners) {
             runner.run();
+            // runner.walk();
         }
     }
 }

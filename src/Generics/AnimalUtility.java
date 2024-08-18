@@ -20,6 +20,6 @@ public class AnimalUtility {
         for (Animal animal : animals) {
             System.out.println(animal.name);
         }
-        animals.add((T) new Dog(" "));
+        // animals.add(new Dog(" "));
     }
 }

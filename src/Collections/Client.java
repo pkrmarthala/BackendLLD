@@ -148,7 +148,14 @@ public class Client {
 
         Collections.sort(students);
 
-        Collections.sort(students, new StudentPSPComparator());
+        // Collections.sort(students, new StudentPSPComparator());
+        Collections.sort(students, (o1, o2) -> {
+            if(o1.attendance > o2.attendance) {
+                return -1;
+            } else if(o1.attendance == o2.attendance) {
+                return 1;
+            } else return 0;
+        });
 
         for(Student s : students) {
             System.out.println(s.name);

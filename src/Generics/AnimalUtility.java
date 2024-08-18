@@ -11,5 +11,15 @@ public class AnimalUtility {
             System.out.println(animal.name);
         }
         animals.add((T) new Dog(" "));
+        // return animals;
+    }
+
+    // Since we are not using the <T> anywhere in the function, we can do it this way.
+    public static void printAnimalNames2(List<? extends Animal> animals) {
+        // this means that the ? is any data type that extends Animal.
+        for (Animal animal : animals) {
+            System.out.println(animal.name);
+        }
+        animals.add((T) new Dog(" "));
     }
 }

@@ -8,7 +8,7 @@ public class Client {
         // list: ordered collection: Insertion Order
         // List allows duplicate elements
         // index: inserting, searching, random access
-        // Famous fpr storing properties
+        // Famous for storing properties
 
         // Array BTS. Dynamic / Growable Array
         // random access: O(1) TC: using index
@@ -129,10 +129,10 @@ public class Client {
         // HashMap -> Not thread safe, allows null
         // Hashtable (will not allow null) , ConcurrentHashMap -> Thread safe
 
-        // Hashtable will block tge complete block / collection during operations
+        // Hashtable will block the complete block / collection during operations
         // ConcurrentHashMap divides the complete collection into a bucket / segment.
-        // During ops, only that particular segment will be blocked from updating/writing.
-        // Reading, searching can be done though. But it'll take sometime to check fpr the latest updates. (CAS algo).
+        // During ops, only that particular segment will be blocked from updates/writes.
+        // Reading, searching can be done though. But it'll take sometime to check for the latest updates. (CAS algo).
 
 
         /* ------------------------------------------------------------------------------------------ */

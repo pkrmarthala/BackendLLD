@@ -251,7 +251,16 @@ public class Client {
         op1.ifPresent(System.out::println); // :: is called method reference
 
 
+        Integer sumOfSquares =
+                l2
+                        .stream()
+                        .filter((elem) -> { return elem % 2 == 0;})
+                        .reduce(0, (curr_sum, n) -> {
+                            return curr_sum + (n * n);
+                        });
 
+        System.out.println(" ");
+        System.out.println(sumOfSquares);
 
 
 

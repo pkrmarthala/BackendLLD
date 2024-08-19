@@ -12,8 +12,8 @@ public class Client {
         Subtractor y = new Subtractor(v);
         ExecutorService ec = Executors.newCachedThreadPool();
 
-        Future<Void> adderFuture= ec.submit(x);
-        Future<Void> subtractorFuture= ec.submit(y);
+        Future<Void> adderFuture = ec.submit(x);
+        Future<Void> subtractorFuture = ec.submit(y);
 
         // Wait for both the tasks to get completed
         adderFuture.get();

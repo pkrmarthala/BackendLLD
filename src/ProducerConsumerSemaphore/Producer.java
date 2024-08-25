@@ -3,9 +3,9 @@ package ProducerConsumerSemaphore;
 import java.util.concurrent.Semaphore;
 
 public class Producer implements Runnable{
-    private Store store;
-    private Semaphore producerSemaphore;
-    private Semaphore consumerSemaphore;
+    private final Store store;
+    private final Semaphore producerSemaphore;
+    private final Semaphore consumerSemaphore;
 
     Producer(Store st, Semaphore producerSemaphore, Semaphore consumerSemaphore) {
         this.store = st;

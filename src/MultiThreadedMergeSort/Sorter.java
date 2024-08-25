@@ -65,7 +65,7 @@ public class Sorter implements Callable<List<Integer>> {
 
         // merge logic
 
-        int i= 0;
+        int i = 0;
         int j = 0;
 
         List<Integer> sortedArray = new ArrayList<>();

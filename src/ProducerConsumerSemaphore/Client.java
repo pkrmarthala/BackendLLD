@@ -13,7 +13,7 @@ public class Client {
 
         Store store = new Store(5);
 
-        for(int i = 1; i<= 8; ++i){
+        for(int i = 1; i <= 8; ++i){
             ex.execute(new Producer(store, producerSemaphore, consumerSemaphore));
         }
 

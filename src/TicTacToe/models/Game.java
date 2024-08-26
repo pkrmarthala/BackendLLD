@@ -93,9 +93,68 @@ public class Game {
         this.gameState = gameState;
     }
 
-
     public static Builder getBuilder() {
         return new Builder();
+    }
+
+    public boolean checkWinner(Move move) {
+        // we might have multiple ways of winning. So, we need to check each way
+        for(WinningStrategy strategy : winningStrategies) {
+            if(strategy.checkWinner(board, move)) return true;
+        }
+        return false;
+    }
+
+    public boolean validateMove(Move move) {
+        // validate
+        // 1. If the move is not out of the board boundary
+        // 2. If the cell is occupied
+
+        int row = move.getCell().getRow();
+        int col = move.getCell().getCol();
+
+        // check if the input is outside the boundary
+        if(row < 0 || row >= board.getSize() || col < 0 || col >= board.getSize()) { return false; }
+
+        // check if the cell is occupied
+        return board.getGrid().get(row).get(col).getCellState().equals(CellState.EMPTY);
+    }
+
+    public void makeMove() {
+        // get the current player.
+        Player currentPlayer = players.get(nextPlayerIndex);
+        System.out.println("It's " + currentPlayer.getName() + "'s turn. Please make the move.");
+
+        // Player should make the move. Not the Game.
+        Move move = currentPlayer.makeMove(board);
+
+        if(!validateMove(move)) {
+            System.out.println("Invalid Move! Please try again.");
+            return;
+        }
+
+        int row = move.getCell().getRow();
+        int col = move.getCell().getCol();
+
+        Cell cellToChange = board.getGrid().get(row).get(col);
+        cellToChange.setCellState(CellState.FILLED);
+        cellToChange.setSymbol(currentPlayer.getSymbol());
+
+        move.setCell(cellToChange);
+        move.setPlayer(currentPlayer);
+        moves.add(move);
+
+        nextPlayerIndex++;
+        nextPlayerIndex %= players.size();
+
+        // we need to check if there is any winner after the move happened.
+        if(checkWinner(move)) {
+            setWinner(currentPlayer);
+            setGameState(GameState.SUCCESS);
+        } else if(moves.size() == board.getSize() * board.getSize()) {
+            setWinner(null);
+            setGameState(GameState.DRAW);
+        }
     }
 
     public void displayBoard() { // This will generally go into a service

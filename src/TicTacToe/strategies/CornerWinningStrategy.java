@@ -1,8 +1,12 @@
 package TicTacToe.strategies;
 
+import TicTacToe.models.Board;
+import TicTacToe.models.Move;
+
 public class CornerWinningStrategy implements WinningStrategy {
     @Override
-    public void checkWinner() {
+    public boolean checkWinner(Board board, Move move) {
         // do the algo here
+        return false;
     }
 }

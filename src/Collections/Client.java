@@ -146,9 +146,16 @@ public class Client {
         // Comparable is used for a single default ordering of any custom class.
         // Comparator provides multiple custom sorting rules for a single class.
 
-        Collections.sort(students);
+        System.out.println(" ");
+
+        Collections.sort(students);  // does based on the compareTo function provided.
+
+        for(Student s : students) {
+            System.out.println(s.name);
+        }
 
         // Collections.sort(students, new StudentPSPComparator());
+        // used the Lambda expression for sorting based on attendance percentage
         Collections.sort(students, (o1, o2) -> {
             if(o1.attendance > o2.attendance) {
                 return -1;
@@ -156,6 +163,8 @@ public class Client {
                 return 1;
             } else return 0;
         });
+
+        System.out.println(" ");
 
         for(Student s : students) {
             System.out.println(s.name);

@@ -24,7 +24,13 @@ public class Client {
             }
         };
 
-        Thread t = new Thread(r);
+        // Thread t = new Thread(r);
+
+        Thread t = new Thread(new Runnable() {
+            public void run() {
+                System.out.println("Hello World T3");
+            }
+        });
         t.start();
         // We can avoid creating the class just to implement Runnable interface and run().
 
@@ -70,15 +76,18 @@ public class Client {
         l1.add(3);
 
         // Descending Order
-        Collections.sort(l1,(o1, o2) -> {
-            if(o1 > o2) {
-                return -1;
-            } else if(o1 < o2) {
-                return 1;
-            } else {
-                return 0;
-            }
-        });
+//        Collections.sort(l1,(o1, o2) -> {
+//            if(o1 > o2) {
+//                return -1;
+//            } else if(o1 < o2) {
+//                return 1;
+//            } else {
+//                return 0;
+//            }
+//        });
+
+        // Collections.sort(l1,(o1, o2) -> { return o2 - o1; });
+        Collections.sort(l1,(o1, o2) -> (o2 - o1) );
 
         // Object of an anonymous class (class without a name) will be created
         // and will be assigned to Runnable interface reference variable.
@@ -96,6 +105,7 @@ public class Client {
         // To create a stream from any collection, we need to
         // Syntax: Collections.stream();
 
+        System.out.println("Print the List L2:");
         Stream<Integer> s1 = l2.stream();
         s1.forEach(System.out::println);
         // forEach() is a kind of terminal method of Streams.
@@ -103,6 +113,7 @@ public class Client {
         // The pipe established to process the data will be closed.
 
         System.out.println(" ");
+        System.out.println("Print thrice of the first 4 elements using the limit function.");
 
         // limit: limits to the first n number of elements in the given data. n is the parameter passed.
         // limit is an intermediate function.
@@ -134,12 +145,19 @@ public class Client {
         students.add(new Student(21, 78.0, "Nidhi", 100.0));
         students.add(new Student(28, 20.0, "Kanu", 90.0));
 
-        System.out.println(" ");
+        System.out.println("Filtering the Students if attendance % > 80%");
+//        students
+//                .stream()
+//                .filter( (elem) -> {
+//                            return elem.attendance > 80.0;
+//                        })
+//                .forEach( (elem) -> {
+//                    System.out.println(elem.name + " " + elem.attendance);
+//                });
+
         students
                 .stream()
-                .filter( (elem) -> {
-                            return elem.attendance > 80.0;
-                        })
+                .filter( (elem) -> (elem.attendance > 80.0) )
                 .forEach( (elem) -> {
                     System.out.println(elem.name + " " + elem.attendance);
                 });
@@ -157,9 +175,8 @@ public class Client {
         Set<Student> s2 =
                 students
                         .stream()
-                        .filter( (elem) -> {
-                            return elem.attendance > 80.0;
-                        }).collect(Collectors.toSet());
+                        .filter( (elem) -> ( elem.attendance > 80.0 ) )
+                        .collect(Collectors.toSet());
 
         // We have to type case to implement below.
         ArrayList<Student> s3 =
@@ -176,9 +193,7 @@ public class Client {
 
         List<Student> l4 = students
                 .stream()
-                .filter( (elem) -> {
-                    return elem.attendance > 80.0;
-                })
+                .filter( (elem) -> ( elem.attendance > 80.0 ) )
                 .map((elem) -> {
                      elem.psp = elem.psp + 10.0;
                      return elem;
@@ -197,7 +212,7 @@ public class Client {
             .filter(
                 (elem) -> elem % 2 == 0)
             .map(
-                (elem) -> { return elem*elem; } )
+                (elem) -> ( elem*elem ) )
             .collect(Collectors.toList());
 
         System.out.println(" ");
@@ -206,13 +221,13 @@ public class Client {
         // distinct():
         // sorted():
         List<Integer> l6 =
-                l2.
-                    stream()
+                l2
+                    .stream()
                     .distinct()
                     .filter(
                             (elem) -> elem % 2 == 0)
                     .map(
-                            (elem) -> { return elem*elem; } )
+                            (elem) -> ( elem*elem ) )
                     .sorted((o1, o2) ->  (o2 - o1))
                     .collect(Collectors.toList());
 
@@ -254,16 +269,13 @@ public class Client {
         Integer sumOfSquares =
                 l2
                         .stream()
-                        .filter((elem) -> { return elem % 2 == 0;})
+                        .filter((elem) -> ( elem % 2 == 0 ) )
                         .reduce(0, (curr_sum, n) -> {
-                            return curr_sum + (n * n);
+                            return (curr_sum + (n * n));
                         });
 
         System.out.println(" ");
         System.out.println(sumOfSquares);
-
-
-
 
     }
 }

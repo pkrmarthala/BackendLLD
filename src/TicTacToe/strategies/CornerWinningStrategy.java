@@ -9,4 +9,11 @@ public class CornerWinningStrategy implements WinningStrategy {
         // do the algo here
         return false;
     }
+
+    @Override
+    public void handleUndo(Board board, Move move) {
+
+    }
+
+
 }

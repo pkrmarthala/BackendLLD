@@ -14,4 +14,9 @@ public class DiagonalWinningStrategy implements WinningStrategy {
         // do the algo
         return false;
     }
+
+    @Override
+    public void handleUndo(Board board, Move move) {
+
+    }
 }

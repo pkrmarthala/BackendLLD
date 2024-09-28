@@ -53,6 +53,13 @@
     */
 
    /* -------------------------------------------------------------------------------------------------------------- */
+ * Undo():
+ * Possibility 1: If the winner is found, we should not be asking if the players want to undo.
+ * Possibility 2: If we are asking for undo even after a winner is found, we should reverse the state as well.
  *
- *
+ * /* -------------------------------------------------------------------------------------------------------------- */
+ * Implement the project from scratch by yourself.
+ * Try to add new features
+ * Convert this to a SpringBoot project
+ * Add frontend as well to showcase it in your projects.
  */

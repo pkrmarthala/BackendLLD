@@ -18,7 +18,7 @@ public abstract class Database {
     }
 
     public static Database createDatabaseObject(String dbName) {
-        return DatabaseFactory.generateDDatabaseObject(dbName);
+        return DatabaseFactory.generateDatabaseObject(dbName);
     }
 
 }

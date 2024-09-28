@@ -7,8 +7,10 @@ import TicTacToe.strategies.RowWinningStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Client  {
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         GameController gameController = new GameController();
 
@@ -24,8 +26,17 @@ public class Client  {
 
         // gameController.display(game);
         while(gameController.checkState(game).equals(GameState.IN_PROGRESS)) {
-            gameController.display(game);
             gameController.makeMove(game);
+            gameController.display(game);
+
+            // Client side code for Undo:
+            System.out.println("Do you want to undo? [Y/N] (case-sensitive)");
+            String undoAnswer = scanner.nextLine();
+            if(undoAnswer.equals("Y")) {
+                gameController.undo(game);
+                System.out.println("Undo is Successful!");
+                gameController.display(game);
+            }
         }
 
         if(gameController.checkState(game).equals(GameState.SUCCESS)) {

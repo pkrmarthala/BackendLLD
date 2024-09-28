@@ -161,6 +161,32 @@ public class Game {
         board.display();
     }
 
+    public void undo() {
+        // whatever we did while making the move, we have to do that in reverse.
+        if(moves.isEmpty()) {
+            System.out.println("Nothing to undo!");
+        }
+        Move lastMove = moves.get(moves.size() - 1);
+        moves.remove(moves.size() - 1);
+
+        // lastMove.setPlayer(null);
+        lastMove.getCell().setCellState(CellState.EMPTY);
+        lastMove.getCell().setSymbol(null);
+        // lastMove.setCell(null);
+
+        nextPlayerIndex--;
+        // (a - b) % n = ( a - b + n ) % n
+        nextPlayerIndex = ( nextPlayerIndex + players.size() ) % players.size();
+
+        // we have to remove the move from the Winning Strategy HashMap
+        for(WinningStrategy strategy : winningStrategies) {
+            strategy.handleUndo(board, lastMove);
+        }
+
+        setGameState(GameState.IN_PROGRESS);
+        setWinner(null);
+    }
+
     /* -------------------------------------------------------------------------------------------------------------- */
 
     // inner class for Builder Design Pattern

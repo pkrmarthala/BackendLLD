@@ -1,7 +1,7 @@
 package FactoryDesignPattern.SimpleFactory.Database;
 
 public class DatabaseFactory {
-    public static Database generateDDatabaseObject(String dbName) {
+    public static Database generateDatabaseObject(String dbName) {
         if(dbName.equalsIgnoreCase("Mysql")) {
             return new MySQL();
         }

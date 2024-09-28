@@ -33,4 +33,12 @@ public class ColumnWinningStrategy implements WinningStrategy {
         if(countCol.get(sym) == board.getSize()) { return true; }
         return false;
     }
+
+    @Override
+    public void handleUndo(Board board, Move move) {
+        int col = move.getCell().getCol();
+        Character sym = move.getPlayer().getSymbol().getSym();
+
+        counts.get(col).put(sym, counts.get(col).get(sym) - 1);
+    }
 }
